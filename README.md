@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# shadcn-registry-starter
 
-## Getting Started
+[shadcn-ui v2.0](https://ui.shadcn.com/docs/changelog) introduced the possibility of fetching components from custom registries, that's why this starter was born.
 
-First, run the development server:
+## Components 
+As did by [shadcn-ui](https://github.com/shadcn-ui/ui), components are organized by styles under the `registry` folder.
+Files are structured as follows:
+
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+registry
+├── default
+│   ├── hooks
+│   ├── lib
+│   ├── themes
+│   └── ui
+└── <your-style>
+    ├── <custom-registry-name>
+    └── ui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Adding new components, hooks, lib, themes, etc.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. As did for the accordion, add your component under the `registry` folder.
+2. Register your component in the `registry-<scope>.ts` (eg. `registry-ui.ts` for components, `registry-themes.ts` for themes, etc.)
+3. Run `pnpm build:registry` to generate the `registry.ts` file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installing custom components
 
-## Learn More
+You can install your custom components by running 
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx shadcn-ui@latest add {app-url}/r/styles/{style-name}/{component-name}.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Running the app
+This app simple homepage was thought for simplify the process of building the registry url. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In order to see it in action locally, run `pnpm dev` and navigate to `http://localhost:3000`.
