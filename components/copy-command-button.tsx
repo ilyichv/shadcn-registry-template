@@ -30,7 +30,7 @@ export function CopyCommandButton({
 
   const copyCommand = (packageManager: string) => {
     const commandUrl = `${window.location.origin}/r/styles/${style}/${component.name}.json`;
-    const command = `${packageManager} shadcn-ui@latest add ${commandUrl}`;
+    const command = `${packageManager} shadcn@latest add ${commandUrl}`;
     navigator.clipboard.writeText(command);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

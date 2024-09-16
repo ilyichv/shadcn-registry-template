@@ -32,7 +32,7 @@ registry
 You can install your custom components by running 
 
 ```bash
-npx shadcn-ui@latest add {app-url}/r/styles/{style-name}/{component-name}.json
+npx shadcn@latest add {app-url}/r/styles/{style-name}/{component-name}.json
 ```
 
 ## Running the app locally
